@@ -1,4 +1,4 @@
-const ListItem = require('./ListItem')
+const ListItem = require('./Node')
 
 class LinkedList {
     constructor() {
