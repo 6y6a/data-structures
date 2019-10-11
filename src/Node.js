@@ -19,6 +19,10 @@ class Node {
     getNext() {
         return this.next
     }
+
+    toString() {
+        return this.data.toString()
+    }
 }
 
 module.exports = Node
