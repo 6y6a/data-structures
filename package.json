@@ -1,0 +1,12 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "basic data structures implemented in js",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["data structures", "javascript"],
+  "author": "Gubin Alexey",
+  "license": "ISC"
+}
