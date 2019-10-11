@@ -1,13 +1,13 @@
-const ListItem = require('./Node')
+const Node = require('./Node')
 
 class LinkedList {
     constructor() {
-        this.firstItem = null
-        this.lastItem = null
+        this.firstElement = null
+        this.lastElement = null
         this.size = 0
     }
 
-    size() {
+    getSize() {
         return this.size
     }
 
@@ -15,38 +15,42 @@ class LinkedList {
         return this.size === 0
     }
 
-    // Add ele
-    addFirst(item) {
-
+    // Add element to the beginning of linked list, O(1)
+    addFirst(element) {
+        const newElement = new Node(element)
+        newElement.setNext(this.firstElement)
+        this.firstElement = newElement
+        if (this.isEmpty()) this.lastElement = this.firstElement
+        this.size++
     }
 
     addItem(item) {
-        const newItem = new ListItem(item);
+        const newItem = new Node(item);
 
         if (this.isEmpty()) {
-            this.firstItem = this.lastItem = newItem
+            this.firstElement = this.lastElement = newItem
         } else {
-            this.lastItem.setNext(newItem)
-            this.lastItem = newItem
+            this.lastElement.setNext(newItem)
+            this.lastElement = newItem
         }
 
         this.size++
     }
 
     removeItem(item) {
-        let currentItem = this.firstItem
+        let currentItem = this.firstElement
         let previousItem
         const isEqualToFirstItem = currentItem.getData() === item
 
         if (isEqualToFirstItem) {
-            this.firstItem = currentItem.getNext()
+            this.firstElement = currentItem.getNext()
         } else {
-            while(currentItem.getData() !== item && this.lastItem !== currentItem) {
+            while(currentItem.getData() !== item && this.lastElement !== currentItem) {
                 previousItem = currentItem
                 currentItem = currentItem.getNext()
             }
 
-            if (currentItem === this.lastItem) this.lastItem = previousItem
+            if (currentItem === this.lastElement) this.lastElement = previousItem
 
             previousItem.setNext(currentItem.getNext())
         }
@@ -55,14 +59,19 @@ class LinkedList {
     }
 
 
-    showList() {
-        let currentItem = this.firstItem
+    toString() {
+        let currentElement = this.firstElement
+        let resultString = ''
+        let index = 1
 
-        while (currentItem) {
-            console.log(currentItem)
-            console.log(currentItem === this.lastItem)
-            currentItem = currentItem.getNext()
+        while(currentElement) {
+            resultString += currentElement.toString()
+            if (this.size !== index) resultString += ', '
+            currentElement = currentElement.getNext()
+            index++
         }
+
+        return resultString
     }
 }
 
