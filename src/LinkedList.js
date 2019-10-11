@@ -18,7 +18,23 @@ class LinkedList {
     // Add element to the beginning of linked list, O(1)
     addFirst(element) {
         this.firstElement = new Node(element, this.firstElement)
+
         if (this.isEmpty()) this.lastElement = this.firstElement
+
+        this.size++
+    }
+
+    // Add element to the end of the linked list, O(1)
+    addLast(element) {
+        const newElement = new Node(element)
+
+        if (this.isEmpty()) {
+            this.firstElement = this.lastElement = newElement
+        } else {
+            this.lastElement.setNext(newElement)
+            this.lastElement = newElement
+        }
+
         this.size++
     }
 
@@ -64,7 +80,7 @@ class LinkedList {
 
         while(currentElement) {
             resultString += currentElement.toString()
-            if (this.size !== index) resultString += ', '
+            if (index !== this.size) resultString += ', '
             currentElement = currentElement.getNext()
             index++
         }
