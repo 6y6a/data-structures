@@ -17,9 +17,7 @@ class LinkedList {
 
     // Add element to the beginning of linked list, O(1)
     addFirst(element) {
-        const newElement = new Node(element)
-        newElement.setNext(this.firstElement)
-        this.firstElement = newElement
+        this.firstElement = new Node(element, this.firstElement)
         if (this.isEmpty()) this.lastElement = this.firstElement
         this.size++
     }

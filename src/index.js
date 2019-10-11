@@ -5,17 +5,10 @@ const a = 1, b = 2, c = 3, d = 4;
 
 const list = new LinkedList();
 
-list.addItem(a)
-list.addItem(b)
-list.addItem(c)
-list.addItem(a)
-list.addItem(b)
-list.addItem(c)
+list.addFirst(a)
+list.addFirst(b)
+list.addFirst(c)
+list.addFirst(d)
 
-list.showList();
-
-
-list.removeItem(d)
-
-console.log(list.size)
+console.log(list.toString())
 
