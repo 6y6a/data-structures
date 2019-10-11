@@ -17,5 +17,5 @@ list.showList();
 
 list.removeItem(d)
 
-console.log(list.length)
+console.log(list.size)
 

@@ -4,11 +4,11 @@ class LinkedList {
     constructor() {
         this.firstItem = null
         this.lastItem = null
-        this.length = 0
+        this.size = 0
     }
 
     isEmpty() {
-        return this.length === 0
+        return this.size === 0
     }
 
     addItem(item) {
@@ -21,7 +21,7 @@ class LinkedList {
             this.lastItem = newItem
         }
 
-        this.length++
+        this.size++
     }
 
     removeItem(item) {
@@ -42,7 +42,7 @@ class LinkedList {
             previousItem.setNext(currentItem.getNext())
         }
 
-        this.length--
+        this.size--
     }
 
 
