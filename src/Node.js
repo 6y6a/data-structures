@@ -12,8 +12,8 @@ class Node {
         return this.data
     }
 
-    setNext(listItem) {
-        this.next = listItem
+    setNext(element) {
+        this.next = element
     }
 
     getNext() {
